@@ -6,8 +6,6 @@ tags: [Docker]
 
 ---
 
-Dockerfile 指令详解请访问：[http://blog.cloudli.top/posts/Dockerfile-指令详解/](http://blog.cloudli.top/posts/Dockerfile-指令详解/)
-
 ## 使用 Alpine Linux 作为基础镜像
 
 Alpine 是一个非常轻量的 Linux 镜像，他只有大约 5MB 的大小，基于它构建镜像，可以大大减少镜像的体积。
@@ -70,10 +68,7 @@ docker run --name my-nginx -p 80:80 -d nginx-apline
 
 运行后访问 `http://localhost/`，会出现一个 nginx 的 404 页面，说明已经运行成功了，因为这里安装的 Nginx 并没有默认页面，`/etc/nginx/conf.d/default.conf` 中的内容：
 
-```conf
-# This is a default site configuration which will simply return 404, preventing
-# chance access to any other virtualhost.
-
+```nginx
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
@@ -89,7 +84,7 @@ server {
 
 在一个空目录下创建 Nginx 配置文件：
 
-```conf
+```nginx
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
